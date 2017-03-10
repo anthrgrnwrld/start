@@ -14,6 +14,9 @@
 		365E05931E72102D00B7AE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365E05911E72102D00B7AE9B /* LaunchScreen.storyboard */; };
 		365E059E1E72102D00B7AE9B /* takuhaiScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E059D1E72102D00B7AE9B /* takuhaiScheduleTests.swift */; };
 		365E05A91E72102D00B7AE9B /* takuhaiScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E05A81E72102D00B7AE9B /* takuhaiScheduleUITests.swift */; };
+		365E05BB1E72B0C600B7AE9B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365E05BA1E72B0C600B7AE9B /* RealmSwift.framework */; };
+		365E05BD1E72B10900B7AE9B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365E05BC1E72B10900B7AE9B /* Realm.framework */; };
+		365E05C01E72B58A00B7AE9B /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365E05BF1E72B58A00B7AE9B /* GoogleMobileAds.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		365E05A41E72102D00B7AE9B /* takuhaiScheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = takuhaiScheduleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		365E05A81E72102D00B7AE9B /* takuhaiScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takuhaiScheduleUITests.swift; sourceTree = "<group>"; };
 		365E05AA1E72102D00B7AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		365E05BA1E72B0C600B7AE9B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		365E05BC1E72B10900B7AE9B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		365E05BF1E72B58A00B7AE9B /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365E05C01E72B58A00B7AE9B /* GoogleMobileAds.framework in Frameworks */,
+				365E05BD1E72B10900B7AE9B /* Realm.framework in Frameworks */,
+				365E05BB1E72B0C600B7AE9B /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +86,12 @@
 		365E057C1E72102C00B7AE9B = {
 			isa = PBXGroup;
 			children = (
+				365E05BF1E72B58A00B7AE9B /* GoogleMobileAds.framework */,
 				365E05871E72102C00B7AE9B /* takuhaiSchedule */,
 				365E059C1E72102D00B7AE9B /* takuhaiScheduleTests */,
 				365E05A71E72102D00B7AE9B /* takuhaiScheduleUITests */,
 				365E05861E72102C00B7AE9B /* Products */,
+				365E05B91E72B0C600B7AE9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +136,15 @@
 			path = takuhaiScheduleUITests;
 			sourceTree = "<group>";
 		};
+		365E05B91E72B0C600B7AE9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				365E05BC1E72B10900B7AE9B /* Realm.framework */,
+				365E05BA1E72B0C600B7AE9B /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +155,7 @@
 				365E05811E72102C00B7AE9B /* Sources */,
 				365E05821E72102C00B7AE9B /* Frameworks */,
 				365E05831E72102C00B7AE9B /* Resources */,
+				365E05BE1E72B15F00B7AE9B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -256,6 +277,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		365E05BE1E72B15F00B7AE9B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		365E05811E72102C00B7AE9B /* Sources */ = {
@@ -414,7 +453,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WBV73EJ8V2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = takuhaiSchedule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthrgrnwrld.takuhaiSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,7 +472,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WBV73EJ8V2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = takuhaiSchedule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthrgrnwrld.takuhaiSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +563,7 @@
 				365E05AF1E72102D00B7AE9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		365E05B01E72102D00B7AE9B /* Build configuration list for PBXNativeTarget "takuhaiScheduleTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +572,7 @@
 				365E05B21E72102D00B7AE9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		365E05B31E72102D00B7AE9B /* Build configuration list for PBXNativeTarget "takuhaiScheduleUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +581,7 @@
 				365E05B51E72102D00B7AE9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
